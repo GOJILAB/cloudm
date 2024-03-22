@@ -12,9 +12,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""GCP Cloud Shell script to automate creation of a service account for GWM.
+"""GCP Cloud Shell script to automate creation of a service account for CloudM.
 
-This script streamlines the installation of GWM by automating the steps
+This script streamlines the installation of CloudM by automating the steps
 required for obtaining a service account key. Specifically, this script will:
 
 1. Create a GCP project.

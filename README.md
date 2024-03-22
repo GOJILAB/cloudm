@@ -1,4 +1,4 @@
-# cloudm
+# CloudM
 ## Google Workspace 建立用於驗證的服務帳戶
 ### 使用自動化指令碼建立帳戶
 1. 在瀏覽器視窗中開啟 [Cloud Shell 編輯器](https://ssh.cloud.google.com/cloudshell/editor?shellonly=true)。

@@ -107,7 +107,11 @@ SCOPES = [
     "https://www.googleapis.com/auth/chat.memberships",
     "https://www.googleapis.com/auth/chat.memberships.app",
     "https://www.googleapis.com/auth/chat.messages",
-    "https://www.googleapis.com/auth/chat.import"
+    "https://www.googleapis.com/auth/chat.import",
+
+    "https://www.googleapis.com/auth/gmail.labels",
+    "https://www.googleapis.com/auth/gmail.readonly",
+    "https://www.googleapis.com/auth/gmail.insert"
 
 ]
 DWD_URL_FORMAT = ("https://admin.google.com/ac/owl/domainwidedelegation?"

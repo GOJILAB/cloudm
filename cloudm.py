@@ -101,7 +101,7 @@ SCOPES = [
     "https://mail.google.com/",
     "https://www.googleapis.com/auth/ediscovery",
     "https://www.googleapis.com/auth/ediscovery.readonly",
-    "https://www.googleapis.com/auth/devstorage.read_write"
+    "https://www.googleapis.com/auth/devstorage.read_write",
 
 
 

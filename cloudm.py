@@ -99,15 +99,7 @@ SCOPES = [
     "https://www.googleapis.com/auth/userinfo.email",
     "https://www.googleapis.com/auth/userinfo.profile",
     
-    "https://www.googleapis.com/auth/chat.admin.spaces.readonly",
-    "https://www.googleapis.com/auth/chat.admin.spaces",
-    "https://www.googleapis.com/auth/chat.admin.memberships",
-    "https://www.googleapis.com/auth/chat.bot",
-    "https://www.googleapis.com/auth/chat.spaces",
-    "https://www.googleapis.com/auth/chat.memberships",
-    "https://www.googleapis.com/auth/chat.memberships.app",
-    "https://www.googleapis.com/auth/chat.messages",
-    "https://www.googleapis.com/auth/chat.import",
+
 
     "https://www.googleapis.com/auth/gmail.labels",
     "https://www.googleapis.com/auth/gmail.readonly",

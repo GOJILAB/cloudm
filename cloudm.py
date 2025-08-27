@@ -40,7 +40,7 @@ from httplib2 import Http
 from google.auth.exceptions import RefreshError
 from google.oauth2 import service_account
 
-VERSION = "1"
+VERSION = "2"
 
 # GCP project IDs must only contain lowercase letters, digits, or hyphens.
 # Projct IDs must start with a letter. Spaces or punctuation are not allowed.
@@ -119,6 +119,10 @@ DWD_URL_FORMAT = ("https://admin.google.com/ac/owl/domainwidedelegation?"
 USER_AGENT = f"{TOOL_NAME}_create_service_account_v{VERSION}"
 KEY_FILE = (f"{pathlib.Path.home()}/{TOOL_NAME.lower()}-service-account-key-"
             f"{datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.json")
+OAUTH_CONSENT_SCREEN_URL_FORMAT = ("https://console.cloud.google.com/apis/"
+                                  "credentials/consent?project={}")
+CREATE_OAUTH_WEB_CLIENT_ID_URL = ("https://support.google.com/workspacemigrate/"
+                                 "answer/9222992")
 
 # Zero width space character, to be used to separate URLs from punctuation.
 ZWSP = "\u200b"
@@ -534,6 +538,12 @@ async def main():
         "resources to which the service account has access. You should treat "
         "it just like you would a password.")
 
+  project_id = await get_project_id()
+  print("\nNext, follow the instructions to create the OAuth web client "
+        f"ID for project {project_id}. You can create this by going to "
+        f"{OAUTH_CONSENT_SCREEN_URL_FORMAT.format(project_id)}{ZWSP}. The "
+        "instructions can be found here: "
+        f"{CREATE_OAUTH_WEB_CLIENT_ID_URL}{ZWSP}.\n")
 
 if __name__ == "__main__":
   asyncio.run(main())

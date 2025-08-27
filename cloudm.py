@@ -99,7 +99,7 @@ SCOPES = [
     "https://www.googleapis.com/auth/user.phonenumbers.read",
     "https://www.googleapis.com/auth/userinfo.email",
     "https://www.googleapis.com/auth/userinfo.profile",
-    
+
     "https://www.googleapis.com/auth/chat.admin.spaces.readonly",
     "https://www.googleapis.com/auth/chat.admin.spaces",
     "https://www.googleapis.com/auth/chat.admin.memberships",
@@ -109,6 +109,7 @@ SCOPES = [
     "https://www.googleapis.com/auth/chat.memberships.app",
     "https://www.googleapis.com/auth/chat.messages",
     "https://www.googleapis.com/auth/chat.import",
+
 
     "https://www.googleapis.com/auth/gmail.labels",
     "https://www.googleapis.com/auth/gmail.readonly",
@@ -512,4 +513,39 @@ async def main():
       f"necessary to use {TOOL_NAME_FRIENDLY}. The following steps will be "
       "performed on your behalf:\n\n1. Create a Google Cloud Platform project\n"
       "2. Enable APIs\n3. Create a service account\n4. Authorize the service "
-      "account\n5. Create a service account key\n\n
+      "account\n5. Create a service account key\n\nIn the end, you will be "
+      "prompted to download the service account key. This key can then be used "
+      f"for {TOOL_NAME}.\n\nIf you would like to perform these steps manually, "
+      f"then you can follow the instructions at {TOOL_HELP_CENTER_URL}{ZWSP}."
+      "\n\nPress Enter to continue or 'n' to exit:")
+
+  if response.lower() == "n":
+    sys.exit(0)
+
+  await create_project()
+  await verify_tos_accepted()
+  await enable_apis()
+  await create_service_account()
+  await authorize_service_account()
+  await create_service_account_key()
+  await verify_service_account_authorization()
+  await verify_api_access()
+  await download_service_account_key()
+  await delete_key()
+
+  logging.info("Done! \u2705")
+  print("\nIf you have already downloaded the file, then you may close this "
+        "page. Please remember that this file is highly sensitve. Any person "
+        "who gains access to the key file will then have full access to all "
+        "resources to which the service account has access. You should treat "
+        "it just like you would a password.")
+
+  project_id = await get_project_id()
+  print("\nNext, follow the instructions to create the OAuth web client "
+        f"ID for project {project_id}. You can create this by going to "
+        f"{OAUTH_CONSENT_SCREEN_URL_FORMAT.format(project_id)}{ZWSP}. The "
+        "instructions can be found here: "
+        f"{CREATE_OAUTH_WEB_CLIENT_ID_URL}{ZWSP}.\n")
+
+if __name__ == "__main__":
+  asyncio.run(main())

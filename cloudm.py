@@ -115,6 +115,7 @@ SCOPES = [
     "https://www.googleapis.com/auth/chat.import",
     "https://www.googleapis.com/auth/chat.customemojis"
 ]
+
 DWD_URL_FORMAT = ("https://admin.google.com/ac/owl/domainwidedelegation?"
                   "overwriteClientId=true&clientIdToAdd={}&clientScopeToAdd={}")
 USER_AGENT = f"{TOOL_NAME}_create_service_account_v{VERSION}"

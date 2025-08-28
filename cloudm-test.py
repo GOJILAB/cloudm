@@ -63,7 +63,8 @@ APIS = [
     "storage-api.googleapis.com",
     "storage-component.googleapis.com",
     "storage.googleapis.com",
-    "vault.googleapis.com"
+    "vault.googleapis.com",
+    "chat.googleapis.com"
 
 ]
 # List of scopes required for service account.
@@ -103,8 +104,6 @@ SCOPES = [
     "https://www.googleapis.com/auth/ediscovery.readonly",
     "https://www.googleapis.com/auth/devstorage.read_write",
 
-
-
     "https://www.googleapis.com/auth/chat.admin.spaces.readonly",
     "https://www.googleapis.com/auth/chat.admin.spaces",
     "https://www.googleapis.com/auth/chat.admin.memberships",
@@ -113,7 +112,8 @@ SCOPES = [
     "https://www.googleapis.com/auth/chat.memberships",
     "https://www.googleapis.com/auth/chat.memberships.app",
     "https://www.googleapis.com/auth/chat.messages",
-    "https://www.googleapis.com/auth/chat.import"
+    "https://www.googleapis.com/auth/chat.import",
+    "https://www.googleapis.com/auth/chat.customemojis"
 ]
 DWD_URL_FORMAT = ("https://admin.google.com/ac/owl/domainwidedelegation?"
                   "overwriteClientId=true&clientIdToAdd={}&clientScopeToAdd={}")

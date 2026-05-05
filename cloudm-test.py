@@ -91,9 +91,7 @@ SCOPES = [
     "https://www.googleapis.com/auth/gmail.readonly",
     "https://www.googleapis.com/auth/gmail.insert",
     "https://mail.google.com/",
-    "https://www.googleapis.com/auth/ediscovery",
-    "https://www.googleapis.com/auth/ediscovery.readonly",
-    "https://www.googleapis.com/auth/devstorage.read_write",
+    
     "https://www.googleapis.com/auth/chat.spaces",
     "https://www.googleapis.com/auth/chat.memberships",
     "https://www.googleapis.com/auth/chat.memberships.app",

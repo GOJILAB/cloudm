@@ -61,19 +61,20 @@ APIS = [
 ]
 # List of scopes required for service account.
 SCOPES = [
-    "https://www.googleapis.com/auth/gmail.settings.basic",
+    "https://www.googleapis.com/auth/admin.directory.resource.calendar",
     "https://www.googleapis.com/auth/gmail.settings.sharing",
+    "https://mail.google.com/",
     "https://sites.google.com/feeds/",
-    "https://www.google.com/m8/feeds",
     "https://www.googleapis.com/auth/admin.directory.group",
     "https://www.googleapis.com/auth/admin.directory.user",
-    "https://www.googleapis.com/auth/admin.directory.resource.calendar",
     "https://www.googleapis.com/auth/apps.groups.migration",
     "https://www.googleapis.com/auth/calendar",
     "https://www.googleapis.com/auth/drive",
     "https://www.googleapis.com/auth/drive.appdata",
     "https://www.googleapis.com/auth/email.migration",
     "https://www.googleapis.com/auth/tasks",
+    "https://www.googleapis.com/auth/forms",
+    "https://www.googleapis.com/auth/gmail.settings.basic",
     "https://www.googleapis.com/auth/contacts",
     "https://www.googleapis.com/auth/contacts.other.readonly",
     "https://www.googleapis.com/auth/contacts.readonly",
@@ -85,24 +86,7 @@ SCOPES = [
     "https://www.googleapis.com/auth/user.organization.read",
     "https://www.googleapis.com/auth/user.phonenumbers.read",
     "https://www.googleapis.com/auth/userinfo.email",
-    "https://www.googleapis.com/auth/userinfo.profile",
-    "https://www.googleapis.com/auth/forms",
-    "https://www.googleapis.com/auth/gmail.labels",
-    "https://www.googleapis.com/auth/gmail.readonly",
-    "https://www.googleapis.com/auth/gmail.insert",
-    "https://mail.google.com/",
-    "https://www.googleapis.com/auth/ediscovery",
-    "https://www.googleapis.com/auth/ediscovery.readonly",
-    "https://www.googleapis.com/auth/devstorage.read_write",
-    "https://www.googleapis.com/auth/chat.spaces",
-    "https://www.googleapis.com/auth/chat.memberships",
-    "https://www.googleapis.com/auth/chat.memberships.app",
-    "https://www.googleapis.com/auth/chat.messages",
-    "https://www.googleapis.com/auth/chat.import",
-    "https://www.googleapis.com/auth/chat.bot",
-    "https://www.googleapis.com/auth/chat.customemojis",
-    "https://www.googleapis.com/auth/chat.admin.spaces",
-    "https://www.googleapis.com/auth/chat.admin.memberships"
+    "https://www.googleapis.com/auth/userinfo.profile"
 ]
 DWD_URL_FORMAT = ("https://admin.google.com/ac/owl/domainwidedelegation?"
                   "overwriteClientId=true&clientIdToAdd={}&clientScopeToAdd={}")
@@ -644,4 +628,3 @@ async def main():
 
 if __name__ == "__main__":
   asyncio.run(main())
-

@@ -376,7 +376,7 @@ async def verify_api_access():
       if api == "tasks.googleapis.com":
         api_name = service_name = "Tasks"
         raw_api_response = execute_api_request(
-            "https://tasks.googleapis.com/tasks/v1/users/"me/lists?maxResults=1&fields=kind", token)
+            "https://tasks.googleapis.com/tasks/v1/users/@me/lists?maxResults=1&fields=kind", token)
 
       if is_api_disabled(raw_api_response):
         disabled_apis[api_name] = api

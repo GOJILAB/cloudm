@@ -57,6 +57,7 @@ APIS = [
     "contacts.googleapis.com",
     "gmail.googleapis.com",
     "groupsmigration.googleapis.com",
+    "chat.googleapis.com",
     "orgpolicy.googleapis.com"  # This is required by this script.
 ]
 # List of scopes required for service account.

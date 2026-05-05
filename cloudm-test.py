@@ -17,11 +17,12 @@
 This script streamlines the installation of CloudM by automating the steps
 required for obtaining a service account key. Specifically, this script will:
 
-1. Create a GCP project.
+1. Create a GCP project
 2. Enable APIs
-3. Create a service account
-4. Authorize the service account
-5. Create and download a service account key
+3. Verify that the org policies allow creating service account keys
+4. Create a service account
+5. Authorize the service account
+6. Create and download a service account key
 """
 
 import asyncio
@@ -52,69 +53,21 @@ APIS = [
     # If admin.googleapis.com is to be included, then it must be the first in
     # this list.
     "admin.googleapis.com",
-    "contacts.googleapis.com",
-    "drive.googleapis.com",
-    "gmail.googleapis.com",
     "calendar-json.googleapis.com",
+    "contacts.googleapis.com",
+    "gmail.googleapis.com",
     "groupsmigration.googleapis.com",
-    "tasks.googleapis.com",
-    "people.googleapis.com",
-    "forms.googleapis.com",
-    "storage-api.googleapis.com",
-    "storage-component.googleapis.com",
-    "storage.googleapis.com",
-    "vault.googleapis.com",
-    "chat.googleapis.com",
-	"orgpolicy.googleapis.com"  # This is required by this script.
-
+    "orgpolicy.googleapis.com"  # This is required by this script.
 ]
 # List of scopes required for service account.
 SCOPES = [
-    "https://www.googleapis.com/auth/gmail.settings.basic",
-    "https://www.googleapis.com/auth/gmail.settings.sharing",
-    "https://sites.google.com/feeds/",
-    "https://www.google.com/m8/feeds",
-    "https://www.googleapis.com/auth/admin.directory.group",
+    "https://www.googleapis.com/auth/contacts",
+    "https://www.googleapis.com/auth/admin.directory.group.readonly",
     "https://www.googleapis.com/auth/admin.directory.user",
-    "https://www.googleapis.com/auth/admin.directory.resource.calendar",
     "https://www.googleapis.com/auth/apps.groups.migration",
     "https://www.googleapis.com/auth/calendar",
-    "https://www.googleapis.com/auth/drive",
-    "https://www.googleapis.com/auth/drive.appdata",
-    "https://www.googleapis.com/auth/email.migration",
-    "https://www.googleapis.com/auth/tasks",
-    "https://www.googleapis.com/auth/contacts",
-    "https://www.googleapis.com/auth/contacts.other.readonly",
-    "https://www.googleapis.com/auth/contacts.readonly",
-    "https://www.googleapis.com/auth/directory.readonly",
-    "https://www.googleapis.com/auth/user.addresses.read",
-    "https://www.googleapis.com/auth/user.birthday.read",
-    "https://www.googleapis.com/auth/user.emails.read",
-    "https://www.googleapis.com/auth/user.gender.read",
-    "https://www.googleapis.com/auth/user.organization.read",
-    "https://www.googleapis.com/auth/user.phonenumbers.read",
-    "https://www.googleapis.com/auth/userinfo.email",
-    "https://www.googleapis.com/auth/userinfo.profile",
-
-
-    "https://www.googleapis.com/auth/gmail.labels",
-    "https://www.googleapis.com/auth/gmail.readonly",
     "https://www.googleapis.com/auth/gmail.insert",
-    "https://mail.google.com/",
-    "https://www.googleapis.com/auth/ediscovery",
-    "https://www.googleapis.com/auth/ediscovery.readonly",
-    "https://www.googleapis.com/auth/devstorage.read_write",
-
-    "https://www.googleapis.com/auth/chat.admin.spaces.readonly",
-    "https://www.googleapis.com/auth/chat.admin.spaces",
-    "https://www.googleapis.com/auth/chat.admin.memberships",
-    "https://www.googleapis.com/auth/chat.bot",
-    "https://www.googleapis.com/auth/chat.spaces",
-    "https://www.googleapis.com/auth/chat.memberships",
-    "https://www.googleapis.com/auth/chat.memberships.app",
-    "https://www.googleapis.com/auth/chat.messages",
-    "https://www.googleapis.com/auth/chat.import",
-    "https://www.googleapis.com/auth/chat.customemojis"
+    "https://www.googleapis.com/auth/gmail.labels"
 ]
 DWD_URL_FORMAT = ("https://admin.google.com/ac/owl/domainwidedelegation?"
                   "overwriteClientId=true&clientIdToAdd={}&clientScopeToAdd={}")
